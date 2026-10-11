@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d1b1aa47aoy42"]
+
+[sub_resource type="Shader" id="Shader_hbayh"]
+code = "shader_type canvas_item;
+const float witdh = 0.001;
+const int NB_COLORS = 3;
+const int WAVE_PER_COLOR = 2;
+uniform vec3 colors[NB_COLORS]: source_color;
+uniform vec2 waves[NB_COLORS*WAVE_PER_COLOR];
+
+void fragment() {
+	vec2 CENTRED_UV = UV - vec2(0.5);
+	for(int color_i = 0; color_i<NB_COLORS; color_i++){
+		float f = 0.0;
+		float df = 0.0;
+		for(int wave_i = 0; wave_i<WAVE_PER_COLOR; wave_i++){
+			vec2 wave = waves[color_i*WAVE_PER_COLOR+wave_i];
+			//chaque wave est sous la forme [amplitude, fréquence]
+			//f += wave[0]*sin((0.1*TIME+UV.x)*wave[1]);
+			//df += wave[0]*wave[1]*cos((0.1*TIME+UV.x)*wave[1]);
+			f += wave[0]*sin(TIME+UV.x*wave[1]);
+			df += wave[0]*wave[1]*cos(TIME+UV.x*wave[1]);
+		}
+		if(abs(f-CENTRED_UV.y)/sqrt(20.0 + df*df)<witdh){
+			COLOR.rgb = colors[color_i];
+		}
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13b8q"]
+shader = SubResource("Shader_hbayh")
+shader_parameter/colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1)
+shader_parameter/waves = PackedVector2Array(0.25, 10, 0, 20, 0.25, 30, 0, 40, 0.25, 50, 0.25, 30)
+
+[node name="Main" type="Node" unique_id=225285065]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=693103979]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=158470836]
+material = SubResource("ShaderMaterial_13b8q")
+offset_right = 231.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 1)
