@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dgqt4k8d7bqjl"]
+
+[ext_resource type="PackedScene" uid="uid://cxdnp0kiblea2" path="res://scenes/level_objects/Player.tscn" id="1_ccxuw"]
+
+[node name="LevetTest1" type="Node2D" unique_id=1775339090]
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=208525123]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1251835488]
+polygon = PackedVector2Array(246, -102, 308, -210, 559, -160, 796, 217, 599, 357, -173, 293, -248, -156, -52, -183, -162, -25, -27, 182, 186, 80, 421, 145, 241, 192, 430, 292, 688, 224, 584, 92, 527, 99, 456, -124, 210, -54, 42, -193, 171, -211)
+
+[node name="Player" parent="." unique_id=981221256 instance=ExtResource("1_ccxuw")]
+position = Vector2(1, -36)
