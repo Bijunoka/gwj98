@@ -11,19 +11,24 @@ config_version=5
 [application]
 
 config/name="gwj98"
+run/main_scene="uid://dgqt4k8d7bqjl"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Binding="*uid://c1s4d4qjasu4y"
+
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [file_customization]
 
 folder_colors={
-"res://scenes/": "orange",
-"res://textures/": "teal"
+"res://scenes/": "orange"
 }
 
 [input]
@@ -64,6 +69,7 @@ Down={
 [layer_names]
 
 2d_render/layer_20="SignalIsVisible"
+2d_physics/layer_1="Walls"
 
 [physics]
 

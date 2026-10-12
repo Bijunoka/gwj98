@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://f6maegcps1x3"]
+
+[sub_resource type="GDScript" id="GDScript_tqyja"]
+script/source = "extends Node2D
+
+@export_range(0, 50) var force: float
+@export_range(5, 100) var frequency: float
+@export_range(0, Binding.MONITOR_NB_COLORS - 1) var color: int
+@export_range(0, Binding.MONITOR_WAVE_PER_COLOR - 1) var chanel: int
+
+func _process(_delta: float) -> void:
+	var delta_pos: Vector2 = Binding.player.global_position-global_position
+	$RayCast2D.target_position = delta_pos
+	$RayCast2D.force_raycast_update()
+	if $RayCast2D.is_colliding():
+		Binding.monitor_set_wave(0.0, 0.0, color, chanel)
+	else:
+		var dist: float = 100.0+delta_pos.length()
+		Binding.monitor_set_wave(force/dist, frequency, color, chanel)
+"
+
+[node name="StaticSignal" type="Node2D" unique_id=1839990506]
+script = SubResource("GDScript_tqyja")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1305028142]
+visible = false
