@@ -2,7 +2,7 @@
 
 [sub_resource type="Shader" id="Shader_hbayh"]
 code = "shader_type canvas_item;
-const float witdh = 0.001;
+const float witdh = 0.004;
 const int NB_COLORS = 3;
 const int WAVE_PER_COLOR = 2;
 uniform vec3 colors[NB_COLORS]: source_color;
@@ -60,5 +60,5 @@ func _ready() -> void:
 material = SubResource("ShaderMaterial_13b8q")
 offset_right = 248.0
 offset_bottom = 69.0
-color = Color(0, 0, 0, 1)
+color = Color(0.19434929, 0.19434926, 0.19434926, 1)
 script = SubResource("GDScript_4ek14")
