@@ -3,12 +3,17 @@
 [sub_resource type="GDScript" id="GDScript_tqyja"]
 script/source = "extends CharacterBody2D
 
+const speed = 400
+
+func _ready() -> void:
+	Binding.player = self
+
 func _physics_process(_delta: float) -> void:
 	var axis: Vector2
 	axis.x = Input.get_axis(&\"Left\", &\"Right\")
 	axis.y = Input.get_axis(&\"Up\", &\"Down\")
 	axis = axis.normalized()
-	velocity = axis*100
+	velocity = axis*speed
 	move_and_slide()
 "
 
@@ -27,6 +32,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=981221256]
+collision_layer = 0
 motion_mode = 1
 script = SubResource("GDScript_tqyja")
 
@@ -40,5 +46,6 @@ position_smoothing_speed = 3.0
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1600782465]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=832427086]
+scale = Vector2(0.5, 0.5)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ff6ni")

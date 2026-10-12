@@ -1,13 +1,50 @@
 [gd_scene format=3 uid="uid://dgqt4k8d7bqjl"]
 
+[ext_resource type="PackedScene" uid="uid://d1b1aa47aoy42" path="res://scenes/Main.tscn" id="1_8vi5p"]
 [ext_resource type="PackedScene" uid="uid://cxdnp0kiblea2" path="res://scenes/level_objects/Player.tscn" id="1_ccxuw"]
+[ext_resource type="PackedScene" uid="uid://f6maegcps1x3" path="res://scenes/level_objects/StaticSignal.tscn" id="3_1dbd5"]
+[ext_resource type="Texture2D" uid="uid://cr7plbxfk5q1e" path="res://icon.svg" id="4_1dbd5"]
 
 [node name="LevetTest1" type="Node2D" unique_id=1775339090]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=548715446]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=966743302]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" parent="." unique_id=225285065 instance=ExtResource("1_8vi5p")]
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=208525123]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1251835488]
-polygon = PackedVector2Array(246, -102, 308, -210, 559, -160, 796, 217, 599, 357, -173, 293, -248, -156, -52, -183, -162, -25, -27, 182, 186, 80, 421, 145, 241, 192, 430, 292, 688, 224, 584, 92, 527, 99, 456, -124, 210, -54, 42, -193, 171, -211)
+polygon = PackedVector2Array(19, 69, 459, 219, 562, 203, 604, 226, 589, 264, 559, 247, 506, 258, 59, 154, -115, 304, 95, 958, 599, 998, 1611, 851, 1491, -139, 837, 29, 776, -124, 674, -219, 585, -220, 591, 20, 643, 87, 604, 107, 562, 24, 564, -92, 549, -265, 684, -261, 781, -174, 833, -96, 1580, -384, 1873, 995, -52, 1099, -228, 255)
 
 [node name="Player" parent="." unique_id=981221256 instance=ExtResource("1_ccxuw")]
-position = Vector2(1, -36)
+position = Vector2(724, 351)
+
+[node name="StaticSignal" parent="." unique_id=1839990506 instance=ExtResource("3_1dbd5")]
+position = Vector2(287, 296)
+force = 50.0
+frequency = 20.0
+chanel = 1
+
+[node name="StaticSignal2" parent="." unique_id=1832390142 instance=ExtResource("3_1dbd5")]
+position = Vector2(663, -148)
+force = 50.0
+frequency = 20.0
+color = 1
+chanel = 1
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1269971282]
+blend_mode = 1
+range_layer_min = -1
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1851766181]
+position = Vector2(283, -153)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_1dbd5")
