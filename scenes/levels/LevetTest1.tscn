@@ -9,6 +9,7 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=548715446]
 layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=966743302]
 anchors_preset = 15
