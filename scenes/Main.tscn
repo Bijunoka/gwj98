@@ -21,7 +21,7 @@ void fragment() {
 			//f += wave[0]*sin(TIME+UV.x*wave[1]);
 			//df += wave[0]*wave[1]*cos(TIME+UV.x*wave[1]);
 		}
-		if(abs(f-CENTRED_UV.y+float(color_i)*0.02)/sqrt(20.0 + df*df)<witdh){
+		if(abs(f-CENTRED_UV.y+float(color_i)*0.03)/sqrt(25.0 + df*df)<witdh){
 			COLOR.rgb = colors[color_i];
 		}
 	}

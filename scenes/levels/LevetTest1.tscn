@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://d1b1aa47aoy42" path="res://scenes/Main.tscn" id="1_8vi5p"]
 [ext_resource type="PackedScene" uid="uid://cxdnp0kiblea2" path="res://scenes/level_objects/Player.tscn" id="1_ccxuw"]
-[ext_resource type="PackedScene" uid="uid://f6maegcps1x3" path="res://scenes/level_objects/StaticSignal.tscn" id="3_1dbd5"]
 [ext_resource type="Texture2D" uid="uid://cr7plbxfk5q1e" path="res://icon.svg" id="4_1dbd5"]
+[ext_resource type="Script" uid="uid://dsbd8ydlp5ynt" path="res://scenes/level_objects/StaticSignals/YStaticSignal.gd" id="4_ldphq"]
+[ext_resource type="Script" uid="uid://drold8s7j1vu4" path="res://scenes/level_objects/StaticSignals/XStaticSignal.gd" id="4_m7v3u"]
 
 [node name="LevetTest1" type="Node2D" unique_id=1775339090]
 
@@ -28,24 +29,25 @@ polygon = PackedVector2Array(19, 69, 459, 219, 562, 203, 604, 226, 589, 264, 559
 [node name="Player" parent="." unique_id=981221256 instance=ExtResource("1_ccxuw")]
 position = Vector2(724, 351)
 
-[node name="StaticSignal" parent="." unique_id=1839990506 instance=ExtResource("3_1dbd5")]
-position = Vector2(287, 296)
-force = 50.0
-frequency = 20.0
-chanel = 1
-
-[node name="StaticSignal2" parent="." unique_id=1832390142 instance=ExtResource("3_1dbd5")]
-position = Vector2(663, -148)
-force = 50.0
-frequency = 20.0
-color = 1
-chanel = 1
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1269971282]
 blend_mode = 1
 range_layer_min = -1
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1851766181]
-position = Vector2(283, -153)
+position = Vector2(280, -150)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_1dbd5")
+
+[node name="XStaticSignal" type="Node2D" parent="." unique_id=2014543441]
+position = Vector2(280, 346)
+script = ExtResource("4_m7v3u")
+intensity = 24.123
+frequency = 20.0
+metadata/_custom_type_script = "uid://drold8s7j1vu4"
+
+[node name="YStaticSignal" type="Node2D" parent="." unique_id=1525620860]
+position = Vector2(672, -145)
+script = ExtResource("4_ldphq")
+intensity = 27.193
+frequency = 20.0
+metadata/_custom_type_script = "uid://dsbd8ydlp5ynt"
