@@ -21,7 +21,7 @@ void fragment() {
 			//f += wave[0]*sin(TIME+UV.x*wave[1]);
 			//df += wave[0]*wave[1]*cos(TIME+UV.x*wave[1]);
 		}
-		if(abs(f-CENTRED_UV.y)/sqrt(20.0 + df*df)<witdh){
+		if(abs(f-CENTRED_UV.y+float(color_i)*0.02)/sqrt(20.0 + df*df)<witdh){
 			COLOR.rgb = colors[color_i];
 		}
 	}
@@ -54,11 +54,28 @@ func _ready() -> void:
 
 [node name="Main" type="Node" unique_id=225285065]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=693103979]
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=693103979]
 
-[node name="Monitor" type="ColorRect" parent="CanvasLayer" unique_id=158470836]
+[node name="Monitor" type="ColorRect" parent="GameUI" unique_id=158470836]
 material = SubResource("ShaderMaterial_13b8q")
 offset_right = 248.0
 offset_bottom = 69.0
 color = Color(0.19434929, 0.19434926, 0.19434926, 1)
 script = SubResource("GDScript_4ek14")
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=2123641443]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1703277823]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Menu/VBoxContainer" unique_id=375919949]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resume"
