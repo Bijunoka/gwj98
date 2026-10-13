@@ -7,3 +7,6 @@ var player: CharacterBody2D
 
 func monitor_set_wave(wave_range: float, frequency: float, color_i: int, wave_i: int) -> void:
 	monitor.set_wave(wave_range, frequency, color_i, wave_i)
+
+func monitor_clear(color) -> void:
+	monitor.clear(color)

@@ -41,15 +41,17 @@ var waves: PackedVector2Array
 
 func set_wave(wave_range: float, frequency: float, color_i: int, wave_i: int) -> void:
 	waves[color_i*Binding.MONITOR_NB_COLORS + wave_i] = Vector2(wave_range, frequency)
-	update_waves()
 
-func update_waves() -> void:
+func _process(_delta: float) -> void:
 	material.set_shader_parameter(&\"waves\", waves)
+
+func clear(c: int) -> void:
+	for i in Binding.MONITOR_WAVE_PER_COLOR:
+		waves[c*Binding.MONITOR_NB_COLORS+i] = Vector2.ZERO
 
 func _ready() -> void:
 	Binding.monitor = self
 	waves.resize(Binding.MONITOR_WAVE_PER_COLOR*Binding.MONITOR_NB_COLORS)
-	update_waves()
 "
 
 [node name="Main" type="Node" unique_id=225285065]

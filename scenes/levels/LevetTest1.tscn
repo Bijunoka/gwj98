@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cr7plbxfk5q1e" path="res://icon.svg" id="4_1dbd5"]
 [ext_resource type="Script" uid="uid://dsbd8ydlp5ynt" path="res://scenes/level_objects/StaticSignals/YStaticSignal.gd" id="4_ldphq"]
 [ext_resource type="Script" uid="uid://drold8s7j1vu4" path="res://scenes/level_objects/StaticSignals/XStaticSignal.gd" id="4_m7v3u"]
+[ext_resource type="Script" uid="uid://dymlqreuykfvt" path="res://scenes/level_objects/StaticSignals/Jammer.gd" id="6_ldphq"]
 
 [node name="LevetTest1" type="Node2D" unique_id=1775339090]
 
@@ -24,7 +25,7 @@ grow_vertical = 2
 [node name="walls" type="StaticBody2D" parent="." unique_id=208525123]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1251835488]
-polygon = PackedVector2Array(19, 69, 459, 219, 562, 203, 604, 226, 589, 264, 559, 247, 506, 258, 59, 154, -115, 304, 95, 958, 599, 998, 1611, 851, 1491, -139, 837, 29, 776, -124, 674, -219, 585, -220, 591, 20, 643, 87, 604, 107, 562, 24, 564, -92, 549, -265, 684, -261, 781, -174, 833, -96, 1580, -384, 1873, 995, -52, 1099, -228, 255)
+polygon = PackedVector2Array(19, 69, 459, 219, 562, 203, 604, 226, 589, 264, 559, 247, 506, 258, 59, 154, -115, 304, 95, 958, 663, 507, 552, 903, 1611, 851, 1491, -139, 837, 29, 776, -124, 674, -219, 585, -220, 591, 20, 643, 87, 604, 107, 562, 24, 564, -92, 549, -265, 684, -261, 781, -174, 833, -96, 1580, -384, 1873, 995, -52, 1099, -228, 255)
 
 [node name="Player" parent="." unique_id=981221256 instance=ExtResource("1_ccxuw")]
 position = Vector2(724, 351)
@@ -38,8 +39,14 @@ position = Vector2(280, -150)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_1dbd5")
 
+[node name="Jammer" type="Node2D" parent="." unique_id=516138470]
+position = Vector2(804, 509)
+script = ExtResource("6_ldphq")
+color = null
+metadata/_custom_type_script = "uid://dymlqreuykfvt"
+
 [node name="XStaticSignal" type="Node2D" parent="." unique_id=2014543441]
-position = Vector2(574, 417)
+position = Vector2(346, 386)
 script = ExtResource("4_m7v3u")
 intensity = 24.123
 frequency = 20.0
@@ -47,7 +54,7 @@ target_pos = Vector2(280, -150)
 metadata/_custom_type_script = "uid://drold8s7j1vu4"
 
 [node name="YStaticSignal" type="Node2D" parent="." unique_id=1525620860]
-position = Vector2(647, 289)
+position = Vector2(630, 164)
 script = ExtResource("4_ldphq")
 intensity = 27.193
 frequency = 20.0
