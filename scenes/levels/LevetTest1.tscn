@@ -39,15 +39,17 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_1dbd5")
 
 [node name="XStaticSignal" type="Node2D" parent="." unique_id=2014543441]
-position = Vector2(280, 346)
+position = Vector2(574, 417)
 script = ExtResource("4_m7v3u")
 intensity = 24.123
 frequency = 20.0
+target_pos = Vector2(280, -150)
 metadata/_custom_type_script = "uid://drold8s7j1vu4"
 
 [node name="YStaticSignal" type="Node2D" parent="." unique_id=1525620860]
-position = Vector2(672, -145)
+position = Vector2(647, 289)
 script = ExtResource("4_ldphq")
 intensity = 27.193
 frequency = 20.0
+target_pos = Vector2(280, -150)
 metadata/_custom_type_script = "uid://dsbd8ydlp5ynt"
