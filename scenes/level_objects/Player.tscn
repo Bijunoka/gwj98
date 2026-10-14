@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cxdnp0kiblea2"]
 
+[ext_resource type="Texture2D" uid="uid://cr7plbxfk5q1e" path="res://icon.svg" id="1_3fv4p"]
+
 [sub_resource type="GDScript" id="GDScript_tqyja"]
 script/source = "extends CharacterBody2D
 
@@ -18,6 +20,7 @@ func _physics_process(_delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13b8q"]
+size = Vector2(127, 32)
 
 [sub_resource type="Gradient" id="Gradient_4wrjf"]
 offsets = PackedFloat32Array(0, 0.8373494)
@@ -32,12 +35,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=981221256]
+y_sort_enabled = true
 collision_layer = 0
 motion_mode = 1
 script = SubResource("GDScript_tqyja")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1720391818]
-shape = SubResource("RectangleShape2D_13b8q")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61893760]
 position_smoothing_enabled = true
@@ -45,7 +46,14 @@ position_smoothing_speed = 3.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1600782465]
 
+[node name="Icon" type="Sprite2D" parent="." unique_id=171623500]
+texture = ExtResource("1_3fv4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1720391818]
+position = Vector2(-0.5, 48)
+shape = SubResource("RectangleShape2D_13b8q")
+
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=832427086]
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, -8)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ff6ni")
