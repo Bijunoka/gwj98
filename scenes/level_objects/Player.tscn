@@ -19,8 +19,9 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_13b8q"]
-size = Vector2(127, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3fv4p"]
+radius = 16.0
+height = 64.0
 
 [sub_resource type="Gradient" id="Gradient_4wrjf"]
 offsets = PackedFloat32Array(0, 0.8373494)
@@ -47,13 +48,15 @@ position_smoothing_speed = 3.0
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1600782465]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=171623500]
+position = Vector2(0, -32)
+scale = Vector2(0.5, 0.75)
 texture = ExtResource("1_3fv4p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1720391818]
-position = Vector2(-0.5, 48)
-shape = SubResource("RectangleShape2D_13b8q")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3fv4p")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=832427086]
-position = Vector2(0, -8)
+position = Vector2(-1, -62)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ff6ni")
