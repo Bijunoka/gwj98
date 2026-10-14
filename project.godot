@@ -28,6 +28,7 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
+"res://assets/": "teal",
 "res://scenes/": "orange"
 }
 
@@ -68,7 +69,7 @@ Down={
 
 [layer_names]
 
-2d_render/layer_20="SignalIsVisible"
+2d_render/layer_1="Walls"
 2d_physics/layer_1="Walls"
 
 [physics]
