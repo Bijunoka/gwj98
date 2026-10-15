@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://cxdnp0kiblea2"]
 
-[ext_resource type="Texture2D" uid="uid://cr7plbxfk5q1e" path="res://icon.svg" id="1_3fv4p"]
-
 [sub_resource type="GDScript" id="GDScript_tqyja"]
 script/source = "extends CharacterBody2D
 
@@ -14,6 +12,16 @@ func _physics_process(_delta: float) -> void:
 	var axis: Vector2
 	axis.x = Input.get_axis(&\"Left\", &\"Right\")
 	axis.y = Input.get_axis(&\"Up\", &\"Down\")
+	if axis.x > 0.0:
+		$AnimatedSprite2D.play(&\"left\")
+	elif axis.x < 0.0:
+		$AnimatedSprite2D.play(&\"left\")
+	elif axis.y < 0.0:
+		$AnimatedSprite2D.play(&\"up\")
+	elif axis.y > 0.0:
+		$AnimatedSprite2D.play(&\"down\")
+	else:
+		$AnimatedSprite2D.play(&\"idle\")
 	axis = axis.normalized()
 	velocity = axis*speed
 	move_and_slide()
@@ -35,6 +43,34 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_13b8q"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=981221256]
 y_sort_enabled = true
 collision_layer = 0
@@ -47,11 +83,6 @@ position_smoothing_speed = 3.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1600782465]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=171623500]
-position = Vector2(0, -32)
-scale = Vector2(0.5, 0.75)
-texture = ExtResource("1_3fv4p")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1720391818]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_3fv4p")
@@ -60,3 +91,7 @@ shape = SubResource("CapsuleShape2D_3fv4p")
 position = Vector2(-1, -62)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ff6ni")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1407186669]
+sprite_frames = SubResource("SpriteFrames_13b8q")
+animation = &"idle"

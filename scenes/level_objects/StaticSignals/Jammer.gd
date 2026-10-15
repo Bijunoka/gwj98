@@ -6,6 +6,9 @@ var ray_cast: RayCast2D = RayCast2D.new()
 var is_jamming: bool
 
 func _ready() -> void:
+	var sprite: AnimatedSprite2D = AnimatedSprite2D.new()
+	sprite.sprite_frames = preload("res://assets/sprite_frames/Jammer.tres")
+	add_child(sprite)
 	process_priority = 1
 	add_child(ray_cast)
 

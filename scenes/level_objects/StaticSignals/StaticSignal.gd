@@ -7,6 +7,9 @@
 var ray_cast: RayCast2D = RayCast2D.new()
 
 func _ready() -> void:
+	var sprite: AnimatedSprite2D = AnimatedSprite2D.new()
+	sprite.sprite_frames = get_spriteframes()
+	add_child(sprite)
 	add_child(ray_cast)
 
 func player_pos() -> Vector2: return Binding.player.global_position
@@ -21,5 +24,6 @@ func _process(_delta: float) -> void:
 		Binding.monitor_set_wave(get_intensity(), get_frequency(), get_color(), chanel)
 
 @abstract func get_color() -> int
+@abstract func get_spriteframes() -> SpriteFrames
 func get_intensity() -> float: return intensity
 func get_frequency() -> float: return frequency
